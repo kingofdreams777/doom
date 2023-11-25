@@ -63,6 +63,10 @@
   (set-company-backend! 'rustic)
   (tree-sitter!))
 
+(setq +tree-sitter-hl-enabled-modes '(rust-mode))
+
+
+
 
 ;; The exceptions to this rule:
 ;;
@@ -77,7 +81,7 @@
 ;; - `use-package!' for configuring packages
 ;; - `after!' for running code after a package has loaded
 ;; - `add-load-path!' for adding directories to the `load-path', relative to
-;;   this file. Emacs searches the `load-path' when you load packages with
+;;   this file.;; Emacs searches the `load-path' when you load packages with
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
 ;;
