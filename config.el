@@ -33,7 +33,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'catppuccin)
-(setq doom-font (font-spec :family "JetBrains Mono" :size 16))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 15))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -41,14 +41,14 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/documents/org/")
 
 ;; inlay hints lsp
 (setq lsp-inlay-hint-enable t)
 
 ;; transparent background
-(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
-(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+(set-frame-parameter nil 'alpha-background 90)
+(add-to-list 'default-frame-alist '(alpha-background . 90))
 
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
 
@@ -63,7 +63,12 @@
   (set-company-backend! 'rustic)
   (tree-sitter!))
 
-(setq +tree-sitter-hl-enabled-modes '(rust-mode))
+(after! vue-mode
+  (set-company-backend! 'vue-mode)
+  (setq lsp-volar-take-over-mode t)
+  (tree-sitter!))
+
+(setq +tree-sitter-hl-enabled-modes '(rust-mode vue-mode))
 
 
 
