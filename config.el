@@ -65,13 +65,14 @@
 
 (after! vue-mode
   (set-company-backend! 'vue-mode)
-  (setq lsp-volar-take-over-mode t)
+  (add-hook! 'vue-mode-hook #'lsp)
   (tree-sitter!))
 
+(use-package! lsp-tailwindcss
+  :init
+  (setq lsp-tailwindcss-add-on-mode t))
+
 (setq +tree-sitter-hl-enabled-modes '(rust-mode vue-mode))
-
-
-
 
 ;; The exceptions to this rule:
 ;;
